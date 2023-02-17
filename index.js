@@ -1,7 +1,24 @@
-function hasTargetSum(array, target) {
-  // Write your algorithm here
-}
+// function hasTargetSum(array, target) {
+//   // Write your algorithm here
+//   for (i = 0; i < array.length; i++) {
+//     const targetNumber = target - array[i];
+//     for (j = i + 1; j < array.length; j++) {
+//       if(array[j] === targetNumber) return true;
+//     } 
+//   }
+//   return false;
+// }
 
+function hasTargetSum(array, target) {
+  const seenNumbers = {};
+  for (let i = 0; i < array.length; i++) {
+    const complement = target - array[i];
+    if (seenNumbers[complement]) return true;
+    seenNumbers[array[i]] = true;
+    console.log(seenNumbers);
+  }
+  return false;
+}
 /* 
   Write the Big O time complexity of your function here
 */
